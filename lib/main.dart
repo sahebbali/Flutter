@@ -8,36 +8,44 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Container & Row Example')),
+        appBar: AppBar(title: Text('Expanded Example')),
         body: Center(
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.center, // Align items in center horizontally
             children: [
-              Container(
-                width: 80,
-                height: 80,
-                color: Colors.red,
-                child: Center(
-                  child: Text('Box 1', style: TextStyle(color: Colors.white)),
+              Expanded(
+                child: Container(
+                  height: 100,
+                  color: Colors.red,
+                  child: Center(
+                    child: Text(
+                      '1',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(width: 10, height: 10), // space between boxes
-              Container(
-                width: 80,
-                height: 80,
-                color: Colors.green,
-                child: Center(
-                  child: Text('Box 2', style: TextStyle(color: Colors.white)),
+              Expanded(
+                child: Container(
+                  height: 100,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text(
+                      '2',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(width: 10, height: 10),
-              Container(
-                width: 80,
-                height: 80,
-                color: Colors.blue,
-                child: Center(
-                  child: Text('Box 3', style: TextStyle(color: Colors.white)),
+              Expanded(
+                child: Container(
+                  height: 100,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Text(
+                      '3',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
                 ),
               ),
             ],
