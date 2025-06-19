@@ -6,20 +6,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // 👈 Add this line
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Basic Widgets')),
+        appBar: AppBar(title: Text('Container & Row Example')),
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment:
+                MainAxisAlignment.center, // Align items in center horizontally
             children: [
-              Text('Hello Flutter!', style: TextStyle(fontSize: 24)),
-              SizedBox(height: 20),
-              ElevatedButton(onPressed: () {}, child: Text('Click Me')),
-              Padding(
-                padding: EdgeInsets.all(16),
-                child: TextField(
-                  decoration: InputDecoration(labelText: 'Enter your name'),
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.red,
+                child: Center(
+                  child: Text('Box 1', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              SizedBox(width: 10, height: 10), // space between boxes
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.green,
+                child: Center(
+                  child: Text('Box 2', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              SizedBox(width: 10, height: 10),
+              Container(
+                width: 80,
+                height: 80,
+                color: Colors.blue,
+                child: Center(
+                  child: Text('Box 3', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],
