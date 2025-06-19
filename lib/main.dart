@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Web Demo',
+      debugShowCheckedModeBanner: false, // 👈 Add this line
       home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Web app bar')),
+        appBar: AppBar(title: Text('Basic Widgets')),
         body: Center(
-          child: Text(
-            'Hello, Flutter Web! hello saheb how are you,where are you from',
-            style: TextStyle(fontSize: 24, color: Colors.blue),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Hello Flutter!', style: TextStyle(fontSize: 24)),
+              SizedBox(height: 20),
+              ElevatedButton(onPressed: () {}, child: Text('Click Me')),
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: TextField(
+                  decoration: InputDecoration(labelText: 'Enter your name'),
+                ),
+              ),
+            ],
           ),
         ),
       ),
