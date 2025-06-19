@@ -8,44 +8,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Expanded Example')),
+        appBar: AppBar(title: Text('Flexible Example')),
         body: Center(
-          child: Column(
+          child: Row(
             children: [
-              Expanded(
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
                 child: Container(
                   height: 100,
                   color: Colors.red,
-                  child: Center(
-                    child: Text(
-                      '1',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ),
+                  child: Center(child: Text('Tight')),
                 ),
               ),
-              Expanded(
+              Flexible(
+                flex: 2,
+                fit: FlexFit.loose, // Default
                 child: Container(
                   height: 100,
                   color: Colors.green,
-                  child: Center(
-                    child: Text(
-                      '2',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 100,
-                  color: Colors.blue,
-                  child: Center(
-                    child: Text(
-                      '3',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ),
+                  child: Center(child: Text('Loose')),
                 ),
               ),
             ],
