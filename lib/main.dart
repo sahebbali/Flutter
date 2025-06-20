@@ -5,27 +5,30 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: GestureExample());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: InkWellExample(),
+    );
   }
 }
 
-class GestureExample extends StatefulWidget {
+class InkWellExample extends StatefulWidget {
   @override
-  _GestureExampleState createState() => _GestureExampleState();
+  _InkWellExampleState createState() => _InkWellExampleState();
 }
 
-class _GestureExampleState extends State<GestureExample> {
-  String _message = 'Tap the container';
+class _InkWellExampleState extends State<InkWellExample> {
+  String _message = "Tap the box";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("GestureDetector Example")),
+      appBar: AppBar(title: Text("InkWell Example")),
       body: Center(
-        child: GestureDetector(
+        child: InkWell(
           onTap: () {
             setState(() {
-              _message = "Container Tapped!";
+              _message = "Box Tapped!";
             });
           },
           onDoubleTap: () {
@@ -41,9 +44,16 @@ class _GestureExampleState extends State<GestureExample> {
           child: Container(
             width: 200,
             height: 200,
-            color: Colors.amber,
+            decoration: BoxDecoration(
+              color: Colors.lightBlue,
+              borderRadius: BorderRadius.circular(12),
+            ),
             alignment: Alignment.center,
-            child: Text(_message, textAlign: TextAlign.center),
+            child: Text(
+              _message,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
