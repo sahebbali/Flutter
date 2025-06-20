@@ -6,29 +6,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Flexible Example')),
+        appBar: AppBar(title: Text("Stack Example")),
         body: Center(
-          child: Row(
+          child: Stack(
+            alignment: Alignment.center,
             children: [
-              Flexible(
-                flex: 1,
-                fit: FlexFit.tight,
-                child: Container(
-                  height: 100,
-                  color: Colors.red,
-                  child: Center(child: Text('Tight')),
-                ),
-              ),
-              Flexible(
-                flex: 2,
-                fit: FlexFit.loose, // Default
-                child: Container(
-                  height: 100,
-                  color: Colors.green,
-                  child: Center(child: Text('Loose')),
-                ),
+              Container(width: 200, height: 200, color: Colors.blue),
+              Container(width: 150, height: 150, color: Colors.green),
+              Container(width: 100, height: 500, color: Colors.red),
+              Text(
+                'Top Layer',
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ],
           ),
