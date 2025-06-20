@@ -5,20 +5,45 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: Text("Wrap Example")),
-        body: Center(
-          child: Wrap(
-            spacing: 10, // space between items horizontally
-            runSpacing: 10, // space between lines vertically
-            children: List.generate(10, (index) {
-              return Chip(
-                label: Text('Item $index'),
-                backgroundColor: Colors.blue.shade100,
-              );
-            }),
+    return MaterialApp(home: GestureExample());
+  }
+}
+
+class GestureExample extends StatefulWidget {
+  @override
+  _GestureExampleState createState() => _GestureExampleState();
+}
+
+class _GestureExampleState extends State<GestureExample> {
+  String _message = 'Tap the container';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("GestureDetector Example")),
+      body: Center(
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              _message = "Container Tapped!";
+            });
+          },
+          onDoubleTap: () {
+            setState(() {
+              _message = "Double Tapped!";
+            });
+          },
+          onLongPress: () {
+            setState(() {
+              _message = "Long Pressed!";
+            });
+          },
+          child: Container(
+            width: 200,
+            height: 200,
+            color: Colors.amber,
+            alignment: Alignment.center,
+            child: Text(_message, textAlign: TextAlign.center),
           ),
         ),
       ),
