@@ -6,20 +6,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text("Stack Example")),
+        appBar: AppBar(title: Text("Wrap Example")),
         body: Center(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(width: 200, height: 200, color: Colors.blue),
-              Container(width: 150, height: 150, color: Colors.green),
-              Container(width: 100, height: 500, color: Colors.red),
-              Text(
-                'Top Layer',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ],
+          child: Wrap(
+            spacing: 10, // space between items horizontally
+            runSpacing: 10, // space between lines vertically
+            children: List.generate(10, (index) {
+              return Chip(
+                label: Text('Item $index'),
+                backgroundColor: Colors.blue.shade100,
+              );
+            }),
           ),
         ),
       ),
